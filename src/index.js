@@ -1,29 +1,32 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import './index.css'
+
+const title = 'Destinations of a Lifetime'
+const author = 'Amelia Hepworth'
+const img = 'https://m.media-amazon.com/images/I/91CU55zNNaL._AC_UL320_.jpg'
 
 function BookList() {
     return (
-        <section>
+        <section className='booklist'>
+            <Book />
             <Book />
         </section>
     )
 }
 
-const Book = () => {
+
+const Book = (props) => {
+    
     return (
-        <article>
-            <Image />
-            <Title />
-            <Author />
+        <article className='book'>
+            <img src={img} alt='' />
+            <h1>{title}</h1>
+            <h4>{author}</h4>
+            
         </article>
     )
 }
 
-const Image = () => (
-    <img src='https://m.media-amazon.com/images/I/91CU55zNNaL._AC_UL320_.jpg' alt='' />
-)
-
-const Title = () => <h1>Destinations of a Lifetime</h1>
-const Author = () => <h4>Amelia Hepworth</h4>
 
 ReactDom.render(<BookList />, document.getElementById('root'))
